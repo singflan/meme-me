@@ -12,6 +12,8 @@
 		6B0827861C8FB4CF00584967 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6B0827841C8FB4CF00584967 /* Main.storyboard */; };
 		6B0827881C8FB4CF00584967 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6B0827871C8FB4CF00584967 /* Assets.xcassets */; };
 		6B08278B1C8FB4CF00584967 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6B0827891C8FB4CF00584967 /* LaunchScreen.storyboard */; };
+		6B09A3831CA0832F00C37728 /* TextFieldsDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B09A3821CA0832F00C37728 /* TextFieldsDelegate.swift */; };
+		6B3C11F41C94749400F800F4 /* ufonts.com_impact.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6B3C11F31C946B4900F800F4 /* ufonts.com_impact.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +24,8 @@
 		6B0827871C8FB4CF00584967 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		6B08278A1C8FB4CF00584967 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		6B08278C1C8FB4CF00584967 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6B09A3821CA0832F00C37728 /* TextFieldsDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextFieldsDelegate.swift; sourceTree = "<group>"; };
+		6B3C11F31C946B4900F800F4 /* ufonts.com_impact.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = ufonts.com_impact.ttf; path = ../../../../../Downloads/ufonts.com_impact.ttf; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,7 +61,9 @@
 				6B0827801C8FB4CF00584967 /* AppDelegate.swift */,
 				6B0827821C8FB4CF00584967 /* ViewController.swift */,
 				6B0827841C8FB4CF00584967 /* Main.storyboard */,
+				6B09A3821CA0832F00C37728 /* TextFieldsDelegate.swift */,
 				6B0827871C8FB4CF00584967 /* Assets.xcassets */,
+				6B3C11F31C946B4900F800F4 /* ufonts.com_impact.ttf */,
 				6B0827891C8FB4CF00584967 /* LaunchScreen.storyboard */,
 				6B08278C1C8FB4CF00584967 /* Info.plist */,
 			);
@@ -96,6 +102,7 @@
 				TargetAttributes = {
 					6B08277C1C8FB4CF00584967 = {
 						CreatedOnToolsVersion = 7.2.1;
+						DevelopmentTeam = KM2A3K6DXB;
 					};
 				};
 			};
@@ -122,6 +129,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6B3C11F41C94749400F800F4 /* ufonts.com_impact.ttf in Resources */,
 				6B08278B1C8FB4CF00584967 /* LaunchScreen.storyboard in Resources */,
 				6B0827881C8FB4CF00584967 /* Assets.xcassets in Resources */,
 				6B0827861C8FB4CF00584967 /* Main.storyboard in Resources */,
@@ -135,6 +143,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6B09A3831CA0832F00C37728 /* TextFieldsDelegate.swift in Sources */,
 				6B0827831C8FB4CF00584967 /* ViewController.swift in Sources */,
 				6B0827811C8FB4CF00584967 /* AppDelegate.swift in Sources */,
 			);
@@ -247,6 +256,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = MemeMe/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.DustinFlanary.MemeMe;
@@ -258,6 +268,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = MemeMe/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.DustinFlanary.MemeMe;
@@ -284,6 +295,7 @@
 				6B0827911C8FB4CF00584967 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
