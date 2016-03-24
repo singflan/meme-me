@@ -13,6 +13,7 @@
 		6B0827881C8FB4CF00584967 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6B0827871C8FB4CF00584967 /* Assets.xcassets */; };
 		6B08278B1C8FB4CF00584967 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6B0827891C8FB4CF00584967 /* LaunchScreen.storyboard */; };
 		6B09A3831CA0832F00C37728 /* TextFieldsDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B09A3821CA0832F00C37728 /* TextFieldsDelegate.swift */; };
+		6B09A3851CA1FEA100C37728 /* MemeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B09A3841CA1FEA100C37728 /* MemeModel.swift */; };
 		6B3C11F41C94749400F800F4 /* ufonts.com_impact.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6B3C11F31C946B4900F800F4 /* ufonts.com_impact.ttf */; };
 /* End PBXBuildFile section */
 
@@ -25,6 +26,7 @@
 		6B08278A1C8FB4CF00584967 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		6B08278C1C8FB4CF00584967 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6B09A3821CA0832F00C37728 /* TextFieldsDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextFieldsDelegate.swift; sourceTree = "<group>"; };
+		6B09A3841CA1FEA100C37728 /* MemeModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MemeModel.swift; sourceTree = "<group>"; };
 		6B3C11F31C946B4900F800F4 /* ufonts.com_impact.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = ufonts.com_impact.ttf; path = ../../../../../Downloads/ufonts.com_impact.ttf; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -61,6 +63,7 @@
 				6B0827801C8FB4CF00584967 /* AppDelegate.swift */,
 				6B0827821C8FB4CF00584967 /* ViewController.swift */,
 				6B0827841C8FB4CF00584967 /* Main.storyboard */,
+				6B09A3841CA1FEA100C37728 /* MemeModel.swift */,
 				6B09A3821CA0832F00C37728 /* TextFieldsDelegate.swift */,
 				6B0827871C8FB4CF00584967 /* Assets.xcassets */,
 				6B3C11F31C946B4900F800F4 /* ufonts.com_impact.ttf */,
@@ -146,6 +149,7 @@
 				6B09A3831CA0832F00C37728 /* TextFieldsDelegate.swift in Sources */,
 				6B0827831C8FB4CF00584967 /* ViewController.swift in Sources */,
 				6B0827811C8FB4CF00584967 /* AppDelegate.swift in Sources */,
+				6B09A3851CA1FEA100C37728 /* MemeModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
@@ -17,40 +18,61 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="OZx-5R-sop">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="OZx-5R-sop">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="556"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="556" id="pBN-vK-bII"/>
+                                </constraints>
                             </imageView>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" text="t" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="f7g-CV-5Un">
-                                <rect key="frame" x="20" y="70" width="560" height="30"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters" enablesReturnKeyAutomatically="YES"/>
-                            </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleAspectFit" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="nn" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hFr-4v-IqH">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleAspectFit" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="nn" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hFr-4v-IqH">
                                 <rect key="frame" x="20" y="448" width="560" height="30"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-CondensedBlack" family="Helvetica Neue" pointSize="24"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
                             </textField>
-                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Faw-Dp-MyQ">
-                                <rect key="frame" x="-1" y="556" width="600" height="44"/>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Faw-Dp-MyQ">
+                                <rect key="frame" x="1" y="556" width="598" height="44"/>
                                 <items>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="FA7-8c-p0p"/>
                                     <barButtonItem title="Camera" id="d47-Pb-jLn">
                                         <connections>
                                             <action selector="pickAnImageFromCamera:" destination="BYZ-38-t0r" id="f4F-lb-5gL"/>
                                         </connections>
                                     </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="tg0-Si-OJC"/>
                                     <barButtonItem title="Album" id="hGo-Xe-5iW">
                                         <connections>
                                             <action selector="pickAnImageFromAlbum:" destination="BYZ-38-t0r" id="0Fc-ba-PjE"/>
                                         </connections>
                                     </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="0Cn-Xe-UYM"/>
                                 </items>
                             </toolbar>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" text="t" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="f7g-CV-5Un">
+                                <rect key="frame" x="20" y="106" width="560" height="30"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters" enablesReturnKeyAutomatically="YES"/>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="Faw-Dp-MyQ" secondAttribute="bottom" id="52s-tl-2l9"/>
+                            <constraint firstItem="hFr-4v-IqH" firstAttribute="leading" secondItem="f7g-CV-5Un" secondAttribute="leading" id="FRB-6Y-GA0"/>
+                            <constraint firstItem="OZx-5R-sop" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="GD7-cj-D2s"/>
+                            <constraint firstAttribute="trailing" secondItem="Faw-Dp-MyQ" secondAttribute="trailing" constant="1" id="Ktg-db-h7b"/>
+                            <constraint firstAttribute="trailing" secondItem="OZx-5R-sop" secondAttribute="trailing" id="QyX-Mf-tsh"/>
+                            <constraint firstItem="hFr-4v-IqH" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="RjQ-rt-kZt"/>
+                            <constraint firstItem="Faw-Dp-MyQ" firstAttribute="top" secondItem="OZx-5R-sop" secondAttribute="bottom" id="Y87-4L-0iF"/>
+                            <constraint firstItem="OZx-5R-sop" firstAttribute="centerX" secondItem="hFr-4v-IqH" secondAttribute="centerX" id="iRA-pb-0nP"/>
+                            <constraint firstItem="Faw-Dp-MyQ" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="1" id="kdx-yB-9kG"/>
+                            <constraint firstItem="Faw-Dp-MyQ" firstAttribute="top" secondItem="hFr-4v-IqH" secondAttribute="bottom" constant="78" id="lw7-MJ-hOG"/>
+                            <constraint firstItem="OZx-5R-sop" firstAttribute="centerX" secondItem="f7g-CV-5Un" secondAttribute="centerX" id="nxu-v8-LBG"/>
+                            <constraint firstItem="OZx-5R-sop" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="oK7-rH-iPg"/>
+                            <constraint firstItem="f7g-CV-5Un" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="86" id="xrO-ci-j1Q"/>
+                        </constraints>
                     </view>
                     <connections>
                         <outlet property="albumButton" destination="hGo-Xe-5iW" id="xIG-mq-LpS"/>
@@ -62,7 +84,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="325" y="399"/>
+            <point key="canvasLocation" x="177" y="395"/>
         </scene>
     </scenes>
 </document>

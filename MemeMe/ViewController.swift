@@ -19,13 +19,21 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     let textDelegate = TextFieldsDelegate()
     let defaultTopText = "TOP"
     let defaultBottomText = "BOTTOM"
+    var memedImage: UIImage?
     
-    struct Meme {
-        var topText: String
-        var bottomText: String
-        var origImage: UIImage
-        var memeImage: NSObject
+    
+    func generateMemedImage() -> UIImage
+    {
+        // Render view to an image
+        UIGraphicsBeginImageContext(self.view.frame.size)
+        view.drawViewHierarchyInRect(self.view.frame,
+            afterScreenUpdates: true)
+        let memedImage : UIImage = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        
+        return memedImage
     }
+    
     
     override func viewDidAppear(animated: Bool) {
         cameraButton.enabled = UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.Camera)
@@ -34,18 +42,19 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-               
+        
+        topTextField.defaultTextAttributes = textDelegate.memeTextAttributes
+        bottomTextField.defaultTextAttributes = textDelegate.memeTextAttributes
+        
         topTextField.text = defaultTopText
         topTextField.textAlignment = NSTextAlignment.Center
         
-        self.bottomTextField.text = defaultBottomText
-        self.bottomTextField.textAlignment = .Center
+        bottomTextField.text = defaultBottomText
+        bottomTextField.textAlignment = .Center
         
-        self.topTextField.delegate = textDelegate
-        self.bottomTextField.delegate = textDelegate
+        topTextField.delegate = textDelegate
+        bottomTextField.delegate = textDelegate
         
-        self.topTextField.defaultTextAttributes = textDelegate.memeTextAttributes
-        self.bottomTextField.defaultTextAttributes = textDelegate.memeTextAttributes
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -116,17 +125,15 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         if let image = info[UIImagePickerControllerOriginalImage] as? UIImage {
             imagePickerView.image = image
         }
-        
         dismissViewControllerAnimated(true, completion: nil)
-        
     }
     
     func imagePickerControllerDidCancel(picker: UIImagePickerController) {
-       
-        
         dismissViewControllerAnimated(true, completion: nil)
-        
-
+    }
+    
+    func save() {
+        let meme = Meme(top: topTextField.text!, bottom: bottomTextField.text!, image: imagePickerView.image!, meme: generateMemedImage())
     }
 }
 
