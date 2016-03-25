@@ -19,9 +19,9 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="OZx-5R-sop">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="556"/>
+                                <rect key="frame" x="0.0" y="44" width="600" height="512"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="556" id="pBN-vK-bII"/>
+                                    <constraint firstAttribute="height" constant="512" id="pBN-vK-bII"/>
                                 </constraints>
                             </imageView>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleAspectFit" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="nn" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hFr-4v-IqH">
@@ -56,12 +56,24 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters" enablesReturnKeyAutomatically="YES"/>
                             </textField>
+                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Hg7-Rt-5Oa">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
+                                <items>
+                                    <navigationItem title="MemeMe" id="pPR-8w-3IK">
+                                        <barButtonItem key="leftBarButtonItem" systemItem="action" id="Eig-Nx-cjg">
+                                            <connections>
+                                                <action selector="shareMeme:" destination="BYZ-38-t0r" id="SII-hT-tw7"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="Faw-Dp-MyQ" secondAttribute="bottom" id="52s-tl-2l9"/>
                             <constraint firstItem="hFr-4v-IqH" firstAttribute="leading" secondItem="f7g-CV-5Un" secondAttribute="leading" id="FRB-6Y-GA0"/>
-                            <constraint firstItem="OZx-5R-sop" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="GD7-cj-D2s"/>
+                            <constraint firstItem="OZx-5R-sop" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" constant="44" id="GD7-cj-D2s"/>
                             <constraint firstAttribute="trailing" secondItem="Faw-Dp-MyQ" secondAttribute="trailing" constant="1" id="Ktg-db-h7b"/>
                             <constraint firstAttribute="trailing" secondItem="OZx-5R-sop" secondAttribute="trailing" id="QyX-Mf-tsh"/>
                             <constraint firstItem="hFr-4v-IqH" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="RjQ-rt-kZt"/>
@@ -79,6 +91,7 @@
                         <outlet property="bottomTextField" destination="hFr-4v-IqH" id="n7k-Ff-t9t"/>
                         <outlet property="cameraButton" destination="d47-Pb-jLn" id="88Z-ik-joS"/>
                         <outlet property="imagePickerView" destination="OZx-5R-sop" id="IZN-aa-PAq"/>
+                        <outlet property="shareBarButton" destination="Eig-Nx-cjg" id="w72-rZ-BUA"/>
                         <outlet property="topTextField" destination="f7g-CV-5Un" id="ydU-HP-K0n"/>
                     </connections>
                 </viewController>

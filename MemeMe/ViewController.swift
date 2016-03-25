@@ -16,25 +16,13 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     @IBOutlet weak var bottomTextField: UITextField!
     @IBOutlet weak var topTextField: UITextField!
     
+    @IBOutlet weak var shareBarButton: UIBarButtonItem!
+    
     let textDelegate = TextFieldsDelegate()
     let defaultTopText = "TOP"
     let defaultBottomText = "BOTTOM"
     var memedImage: UIImage?
-    
-    
-    func generateMemedImage() -> UIImage
-    {
-        // Render view to an image
-        UIGraphicsBeginImageContext(self.view.frame.size)
-        view.drawViewHierarchyInRect(self.view.frame,
-            afterScreenUpdates: true)
-        let memedImage : UIImage = UIGraphicsGetImageFromCurrentImageContext()
-        UIGraphicsEndImageContext()
-        
-        return memedImage
-    }
-    
-    
+
     override func viewDidAppear(animated: Bool) {
         cameraButton.enabled = UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.Camera)
     }
@@ -55,11 +43,20 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         topTextField.delegate = textDelegate
         bottomTextField.delegate = textDelegate
         
+        shareBarButton.enabled = false
+        
     }
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         subscribeToKeyboardNotifications()
+        
+        // Got help from forum question
+        if imagePickerView.image == nil {
+            shareBarButton.enabled = false
+        } else {
+            shareBarButton.enabled = true
+        }
     }
     
     override func viewWillDisappear(animated: Bool) {
@@ -130,6 +127,33 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     
     func imagePickerControllerDidCancel(picker: UIImagePickerController) {
         dismissViewControllerAnimated(true, completion: nil)
+    }
+    
+    @IBAction func shareMeme (sender: AnyObject) {
+        // I got help on this part from an answer of a Udacity coach in the forum
+        self.memedImage = generateMemedImage()
+        let activityVC = UIActivityViewController(activityItems: [self.memedImage!], applicationActivities: nil)
+        
+        activityVC.completionWithItemsHandler = { activity, completed, items, error in
+            if completed {
+                self.save()
+                self.dismissViewControllerAnimated(true, completion: nil)
+            }
+        }
+        
+        self.presentViewController(activityVC, animated: true, completion: nil)
+    }
+    
+    func generateMemedImage() -> UIImage
+    {
+        // Render view to an image
+        UIGraphicsBeginImageContext(self.view.frame.size)
+        view.drawViewHierarchyInRect(self.view.frame,
+            afterScreenUpdates: true)
+        let memedImage : UIImage = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        
+        return memedImage
     }
     
     func save() {
