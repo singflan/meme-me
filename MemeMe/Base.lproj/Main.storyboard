@@ -20,9 +20,7 @@
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="OZx-5R-sop">
                                 <rect key="frame" x="0.0" y="44" width="600" height="512"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="512" id="pBN-vK-bII"/>
-                                </constraints>
+                                <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
                             </imageView>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleAspectFit" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="nn" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hFr-4v-IqH">
                                 <rect key="frame" x="20" y="448" width="560" height="30"/>
@@ -56,7 +54,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters" enablesReturnKeyAutomatically="YES"/>
                             </textField>
-                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Hg7-Rt-5Oa">
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Hg7-Rt-5Oa">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
                                 <items>
                                     <navigationItem title="MemeMe" id="pPR-8w-3IK">
@@ -74,9 +72,12 @@
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="Faw-Dp-MyQ" secondAttribute="bottom" id="52s-tl-2l9"/>
                             <constraint firstItem="hFr-4v-IqH" firstAttribute="leading" secondItem="f7g-CV-5Un" secondAttribute="leading" id="FRB-6Y-GA0"/>
                             <constraint firstItem="OZx-5R-sop" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" constant="44" id="GD7-cj-D2s"/>
+                            <constraint firstItem="Hg7-Rt-5Oa" firstAttribute="trailing" secondItem="OZx-5R-sop" secondAttribute="trailing" id="I4n-Vd-CFW"/>
                             <constraint firstAttribute="trailing" secondItem="Faw-Dp-MyQ" secondAttribute="trailing" constant="1" id="Ktg-db-h7b"/>
                             <constraint firstAttribute="trailing" secondItem="OZx-5R-sop" secondAttribute="trailing" id="QyX-Mf-tsh"/>
                             <constraint firstItem="hFr-4v-IqH" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="RjQ-rt-kZt"/>
+                            <constraint firstItem="OZx-5R-sop" firstAttribute="top" secondItem="Hg7-Rt-5Oa" secondAttribute="bottom" id="Tqh-14-pDw"/>
+                            <constraint firstItem="Hg7-Rt-5Oa" firstAttribute="leading" secondItem="OZx-5R-sop" secondAttribute="leading" id="Udj-WY-KE3"/>
                             <constraint firstItem="Faw-Dp-MyQ" firstAttribute="top" secondItem="OZx-5R-sop" secondAttribute="bottom" id="Y87-4L-0iF"/>
                             <constraint firstItem="OZx-5R-sop" firstAttribute="centerX" secondItem="hFr-4v-IqH" secondAttribute="centerX" id="iRA-pb-0nP"/>
                             <constraint firstItem="Faw-Dp-MyQ" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="1" id="kdx-yB-9kG"/>
@@ -97,7 +98,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="177" y="395"/>
+            <point key="canvasLocation" x="269" y="288"/>
         </scene>
     </scenes>
 </document>
