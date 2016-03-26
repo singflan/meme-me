@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  MemeEditorViewController.swift
 //  MemeMe
 //
 //  Created by Dustin Flanary on 3/8/16.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     @IBOutlet weak var imagePickerView: UIImageView!
     @IBOutlet weak var cameraButton: UIBarButtonItem!
@@ -26,36 +26,26 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     let defaultBottomText = "BOTTOM"
     var memedImage: UIImage?
 
+// MARK: - Lifecycle Functions
+    
     override func viewDidAppear(animated: Bool) {
         cameraButton.enabled = UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.Camera)
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+
         self.navigationController?.navigationBarHidden = false
-        
-        topTextField.defaultTextAttributes = textDelegate.memeTextAttributes
-        bottomTextField.defaultTextAttributes = textDelegate.memeTextAttributes
-        
-        topTextField.text = defaultTopText
-        topTextField.textAlignment = NSTextAlignment.Center
-        
-        bottomTextField.text = defaultBottomText
-        bottomTextField.textAlignment = .Center
-        
-        topTextField.delegate = textDelegate
-        bottomTextField.delegate = textDelegate
-        
+        setupTextFields(topTextField)
+        setupTextFields(bottomTextField)
         shareBarButton.enabled = false
-        
     }
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         subscribeToKeyboardNotifications()
         
-        // Got help from a forum question; this makes share button unavailable until an image is picked.
+        // Got help from a forum question; this makes the share button unavailable until an image is picked.
         if imagePickerView.image == nil {
             shareBarButton.enabled = false
         } else {
@@ -67,6 +57,21 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         super.viewWillDisappear(animated)
         unsubscribeFromKeyboardNotifications()
     }
+
+// MARK: - Setup
+    // This sets up the TextFields with the delegate file and assigns them the default text, attributes and alignment
+    func setupTextFields (textField: UITextField) {
+        textField.defaultTextAttributes = textDelegate.memeTextAttributes
+        textField.textAlignment = .Center
+        textField.delegate = textDelegate
+        if textField == topTextField {
+            textField.text = defaultTopText
+        } else {
+            textField.text = defaultBottomText
+        }
+    }
+    
+// MARK: - Keyboard Functions
     
     func subscribeToKeyboardNotifications() {
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWillShow:", name: UIKeyboardWillShowNotification, object: nil)
@@ -87,9 +92,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     
     // When the keyboard is about to disappear, the frame's origin is set back to 0.
     func keyboardWillHide(notification: NSNotification) {
-        if bottomTextField.isFirstResponder() {
-            self.view.frame.origin.y = 0
-        }
+        self.view.frame.origin.y = 0
     }
     
     func getKeyboardHeight(notification: NSNotification) -> CGFloat {
@@ -101,13 +104,9 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         } else {
             return 0
         }
-        
     }
     
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
+// MARK: - Actions
     
     // This function sets up the UIImagePickerController and sets the correct sourceType based on the button that was clicked and presents the camera or photo library
     @IBAction func pickImageFromSource (sender: AnyObject) {
@@ -119,7 +118,6 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
             imagePickerController.sourceType = UIImagePickerControllerSourceType.PhotoLibrary
         }
         presentViewController(imagePickerController, animated: true, completion: nil)
-        
     }
     
     
@@ -127,6 +125,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
 
         if let image = info[UIImagePickerControllerOriginalImage] as? UIImage {
             imagePickerView.image = image
+            imagePickerView.contentMode = .ScaleAspectFit
         }
         dismissViewControllerAnimated(true, completion: nil)
     }
@@ -137,8 +136,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     
     @IBAction func shareMeme (sender: AnyObject) {
         /* I got help on this part from an answer of a Udacity coach in the forum. It creates a screenshot of the meme that can be shared */
-        
-        self.memedImage = generateMemedImage()
+        memedImage = generateMemedImage()
         let activityVC = UIActivityViewController(activityItems: [self.memedImage!], applicationActivities: nil)
         
         activityVC.completionWithItemsHandler = { activity, completed, items, error in
@@ -147,15 +145,14 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
                 self.dismissViewControllerAnimated(true, completion: nil)
             }
         }
-        
-        self.presentViewController(activityVC, animated: true, completion: nil)
+        presentViewController(activityVC, animated: true, completion: nil)
     }
     
     func generateMemedImage() -> UIImage
     {
         // Hide Navigation Bar and Toolbar for screenshot
         navigationController?.setNavigationBarHidden(true, animated:  true)
-        self.bottomToolBar.hidden = true
+        bottomToolBar.hidden = true
         
         // Render view to an image
         UIGraphicsBeginImageContext(self.view.frame.size)
@@ -165,14 +162,14 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         
         // Have Navigation Bar and toolbar reappear immdiately after screenshot is taken
         navigationController?.setNavigationBarHidden(false, animated: true)
-        self.bottomToolBar.hidden = false
+        bottomToolBar.hidden = false
         
         return memedImage
     }
     
     // Save the text and image to a Meme struct
     func save() {
-        let meme = Meme(top: topTextField.text!, bottom: bottomTextField.text!, image: imagePickerView.image!, meme: generateMemedImage())
+        let meme = Meme(topText: topTextField.text!, bottomText: bottomTextField.text!, origImage: imagePickerView.image!, memeImage: generateMemedImage())
     }
 }
 

@@ -13,13 +13,6 @@ struct Meme {
     var bottomText: String
     var origImage: UIImage
     var memeImage: NSObject
-    
-    init(top: String, bottom: String, image: UIImage, meme: UIImage) {
-        topText = top
-        bottomText = bottom
-        origImage = image
-        memeImage = meme
-    }
 }
 
 
