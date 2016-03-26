@@ -6,7 +6,7 @@
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--MemeMe-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="MemeMe" customModuleProvider="target" sceneMemberID="viewController">
@@ -54,18 +54,6 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters" enablesReturnKeyAutomatically="YES"/>
                             </textField>
-                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Hg7-Rt-5Oa">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
-                                <items>
-                                    <navigationItem title="MemeMe" id="pPR-8w-3IK">
-                                        <barButtonItem key="leftBarButtonItem" systemItem="action" id="Eig-Nx-cjg">
-                                            <connections>
-                                                <action selector="shareMeme:" destination="BYZ-38-t0r" id="SII-hT-tw7"/>
-                                            </connections>
-                                        </barButtonItem>
-                                    </navigationItem>
-                                </items>
-                            </navigationBar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
@@ -73,12 +61,9 @@
                             <constraint firstItem="hFr-4v-IqH" firstAttribute="leading" secondItem="f7g-CV-5Un" secondAttribute="leading" id="FRB-6Y-GA0"/>
                             <constraint firstItem="OZx-5R-sop" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" constant="44" id="GD7-cj-D2s"/>
                             <constraint firstItem="OZx-5R-sop" firstAttribute="top" secondItem="f7g-CV-5Un" secondAttribute="bottom" constant="-92" id="GlR-w4-ltG"/>
-                            <constraint firstItem="Hg7-Rt-5Oa" firstAttribute="trailing" secondItem="OZx-5R-sop" secondAttribute="trailing" id="I4n-Vd-CFW"/>
                             <constraint firstAttribute="trailing" secondItem="Faw-Dp-MyQ" secondAttribute="trailing" constant="1" id="Ktg-db-h7b"/>
                             <constraint firstAttribute="trailing" secondItem="OZx-5R-sop" secondAttribute="trailing" id="QyX-Mf-tsh"/>
                             <constraint firstItem="hFr-4v-IqH" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="RjQ-rt-kZt"/>
-                            <constraint firstItem="OZx-5R-sop" firstAttribute="top" secondItem="Hg7-Rt-5Oa" secondAttribute="bottom" id="Tqh-14-pDw"/>
-                            <constraint firstItem="Hg7-Rt-5Oa" firstAttribute="leading" secondItem="OZx-5R-sop" secondAttribute="leading" id="Udj-WY-KE3"/>
                             <constraint firstItem="Faw-Dp-MyQ" firstAttribute="top" secondItem="OZx-5R-sop" secondAttribute="bottom" id="Y87-4L-0iF"/>
                             <constraint firstItem="OZx-5R-sop" firstAttribute="centerX" secondItem="hFr-4v-IqH" secondAttribute="centerX" id="iRA-pb-0nP"/>
                             <constraint firstItem="Faw-Dp-MyQ" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="1" id="kdx-yB-9kG"/>
@@ -87,15 +72,20 @@
                             <constraint firstItem="OZx-5R-sop" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="oK7-rH-iPg"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="ctf-TY-STb"/>
+                    <navigationItem key="navigationItem" title="MemeMe" id="ctf-TY-STb">
+                        <barButtonItem key="leftBarButtonItem" systemItem="action" id="JJa-4V-3AL">
+                            <connections>
+                                <action selector="shareMeme:" destination="BYZ-38-t0r" id="W9R-Bo-0xE"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="albumButton" destination="hGo-Xe-5iW" id="xIG-mq-LpS"/>
                         <outlet property="bottomTextField" destination="hFr-4v-IqH" id="n7k-Ff-t9t"/>
                         <outlet property="bottomToolBar" destination="Faw-Dp-MyQ" id="xfs-Up-KKE"/>
                         <outlet property="cameraButton" destination="d47-Pb-jLn" id="88Z-ik-joS"/>
                         <outlet property="imagePickerView" destination="OZx-5R-sop" id="IZN-aa-PAq"/>
-                        <outlet property="navBar" destination="Hg7-Rt-5Oa" id="lke-Xd-rIz"/>
-                        <outlet property="shareBarButton" destination="Eig-Nx-cjg" id="w72-rZ-BUA"/>
+                        <outlet property="shareBarButton" destination="JJa-4V-3AL" id="KKN-bA-lkI"/>
                         <outlet property="topTextField" destination="f7g-CV-5Un" id="ydU-HP-K0n"/>
                     </connections>
                 </viewController>

@@ -60,8 +60,8 @@
 			children = (
 				6B0827801C8FB4CF00584967 /* AppDelegate.swift */,
 				6B0827821C8FB4CF00584967 /* ViewController.swift */,
-				6B0827841C8FB4CF00584967 /* Main.storyboard */,
 				6B09A3841CA1FEA100C37728 /* MemeModel.swift */,
+				6B0827841C8FB4CF00584967 /* Main.storyboard */,
 				6B09A3821CA0832F00C37728 /* TextFieldsDelegate.swift */,
 				6B0827871C8FB4CF00584967 /* Assets.xcassets */,
 				6B0827891C8FB4CF00584967 /* LaunchScreen.storyboard */,

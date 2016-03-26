@@ -16,10 +16,9 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     @IBOutlet weak var bottomTextField: UITextField!
     @IBOutlet weak var topTextField: UITextField!
     
+    var navigationBarHidden: Bool!
+    
     @IBOutlet weak var shareBarButton: UIBarButtonItem!
-    
-    @IBOutlet weak var navBar: UINavigationBar!
-    
     @IBOutlet weak var bottomToolBar: UIToolbar!
     
     let textDelegate = TextFieldsDelegate()
@@ -34,6 +33,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        self.navigationController?.navigationBarHidden = false
         
         topTextField.defaultTextAttributes = textDelegate.memeTextAttributes
         bottomTextField.defaultTextAttributes = textDelegate.memeTextAttributes
@@ -55,7 +55,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         super.viewWillAppear(animated)
         subscribeToKeyboardNotifications()
         
-        // Got help from forum question
+        // Got help from a forum question; this makes share button unavailable until an image is picked.
         if imagePickerView.image == nil {
             shareBarButton.enabled = false
         } else {
@@ -153,16 +153,18 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     
     func generateMemedImage() -> UIImage
     {
-        self.navBar.hidden = true
+        // Hide Navigation Bar and Toolbar for screenshot
+        navigationController?.setNavigationBarHidden(true, animated:  true)
         self.bottomToolBar.hidden = true
+        
         // Render view to an image
         UIGraphicsBeginImageContext(self.view.frame.size)
-        view.drawViewHierarchyInRect(self.view.frame,
-            afterScreenUpdates: true)
+        view.drawViewHierarchyInRect(self.view.frame, afterScreenUpdates: true)
         let memedImage : UIImage = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
         
-        self.navBar.hidden = false
+        // Have Navigation Bar and toolbar reappear immdiately after screenshot is taken
+        navigationController?.setNavigationBarHidden(false, animated: true)
         self.bottomToolBar.hidden = false
         
         return memedImage
