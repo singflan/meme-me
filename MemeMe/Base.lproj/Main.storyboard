@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="Kgk-B0-sHu">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
@@ -35,13 +35,13 @@
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="FA7-8c-p0p"/>
                                     <barButtonItem title="Camera" id="d47-Pb-jLn">
                                         <connections>
-                                            <action selector="pickAnImageFromCamera:" destination="BYZ-38-t0r" id="f4F-lb-5gL"/>
+                                            <action selector="pickImageFromSource:" destination="BYZ-38-t0r" id="bn2-T5-1Gt"/>
                                         </connections>
                                     </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="tg0-Si-OJC"/>
                                     <barButtonItem title="Album" id="hGo-Xe-5iW">
                                         <connections>
-                                            <action selector="pickAnImageFromAlbum:" destination="BYZ-38-t0r" id="0Fc-ba-PjE"/>
+                                            <action selector="pickImageFromSource:" destination="BYZ-38-t0r" id="KhG-cI-7n8"/>
                                         </connections>
                                     </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="0Cn-Xe-UYM"/>
@@ -72,6 +72,7 @@
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="Faw-Dp-MyQ" secondAttribute="bottom" id="52s-tl-2l9"/>
                             <constraint firstItem="hFr-4v-IqH" firstAttribute="leading" secondItem="f7g-CV-5Un" secondAttribute="leading" id="FRB-6Y-GA0"/>
                             <constraint firstItem="OZx-5R-sop" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" constant="44" id="GD7-cj-D2s"/>
+                            <constraint firstItem="OZx-5R-sop" firstAttribute="top" secondItem="f7g-CV-5Un" secondAttribute="bottom" constant="-92" id="GlR-w4-ltG"/>
                             <constraint firstItem="Hg7-Rt-5Oa" firstAttribute="trailing" secondItem="OZx-5R-sop" secondAttribute="trailing" id="I4n-Vd-CFW"/>
                             <constraint firstAttribute="trailing" secondItem="Faw-Dp-MyQ" secondAttribute="trailing" constant="1" id="Ktg-db-h7b"/>
                             <constraint firstAttribute="trailing" secondItem="OZx-5R-sop" secondAttribute="trailing" id="QyX-Mf-tsh"/>
@@ -84,19 +85,39 @@
                             <constraint firstItem="Faw-Dp-MyQ" firstAttribute="top" secondItem="hFr-4v-IqH" secondAttribute="bottom" constant="78" id="lw7-MJ-hOG"/>
                             <constraint firstItem="OZx-5R-sop" firstAttribute="centerX" secondItem="f7g-CV-5Un" secondAttribute="centerX" id="nxu-v8-LBG"/>
                             <constraint firstItem="OZx-5R-sop" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="oK7-rH-iPg"/>
-                            <constraint firstItem="f7g-CV-5Un" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="86" id="xrO-ci-j1Q"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="ctf-TY-STb"/>
                     <connections>
                         <outlet property="albumButton" destination="hGo-Xe-5iW" id="xIG-mq-LpS"/>
                         <outlet property="bottomTextField" destination="hFr-4v-IqH" id="n7k-Ff-t9t"/>
+                        <outlet property="bottomToolBar" destination="Faw-Dp-MyQ" id="xfs-Up-KKE"/>
                         <outlet property="cameraButton" destination="d47-Pb-jLn" id="88Z-ik-joS"/>
                         <outlet property="imagePickerView" destination="OZx-5R-sop" id="IZN-aa-PAq"/>
+                        <outlet property="navBar" destination="Hg7-Rt-5Oa" id="lke-Xd-rIz"/>
                         <outlet property="shareBarButton" destination="Eig-Nx-cjg" id="w72-rZ-BUA"/>
                         <outlet property="topTextField" destination="f7g-CV-5Un" id="ydU-HP-K0n"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1081" y="288"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="zoo-GI-FAb">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Kgk-B0-sHu" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="p2K-b7-GBQ">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="pAp-Mf-KSp"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="gxs-GU-itC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="269" y="288"/>
         </scene>
